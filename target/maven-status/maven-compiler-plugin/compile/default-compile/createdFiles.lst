@@ -1,0 +1,16 @@
+com\SpringFrist\Controller\DepartmentController.class
+com\SpringFrist\Application.class
+com\SpringFrist\Service\DepartmentService.class
+com\SpringFrist\Repository\DepartmentRepository.class
+com\SpringFrist\Service\CourseService.class
+com\SpringFrist\Model\Student.class
+com\SpringFrist\Model\Course.class
+com\SpringFrist\Repository\StudentRepository.class
+com\SpringFrist\Serviceimpl\Studentserviceimpl.class
+com\SpringFrist\Controller\CourseController.class
+com\SpringFrist\Repository\CourseRepository.class
+com\SpringFrist\Service\StudentService.class
+com\SpringFrist\Model\Department.class
+com\SpringFrist\Serviceimpl\Courseserviceimpl.class
+com\SpringFrist\Controller\StudentController.class
+com\SpringFrist\Serviceimpl\Departmentserviceimpl.class
