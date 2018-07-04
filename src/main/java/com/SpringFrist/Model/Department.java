@@ -3,14 +3,12 @@ package com.SpringFrist.Model;
 import java.util.List;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
 @Table(name="Department")
 public class Department {
 	 @Id
-	 @GeneratedValue(strategy=GenerationType.AUTO)
 	 @Column(name="department_id")
      private int dId;
 	 @Column(name="department_name")
@@ -18,10 +16,10 @@ public class Department {
 	 @Column(name="department_location")
      private String dLocation;
      
-	 @JsonManagedReference
-	 @OneToMany(mappedBy="department" ,fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	 
+	 @OneToMany(mappedBy="department" ,fetch = FetchType.EAGER, cascade=CascadeType.MERGE)
 	 @Column(nullable=true)
-     private List<Course> course; 
+     private List<Course> courses; 
 	 
 	 
      
@@ -54,11 +52,11 @@ public class Department {
 		this.dLocation = dLocation;
 	}
 	
-	public List<Course> getCourses() {
-		return course;
-	}
+	/*public List<Course> getCourses() {
+		return courses;
+	}*/
 	public void setCourses(List<Course> course) {
-		this.course = course;
+		this.courses = course;
 	}
      
      

@@ -11,9 +11,7 @@ CREATE TABLE `Department`(
       `course_id` VARCHAR(10) NOT NULL,
       `course_name` VARCHAR(25) NOT NULL,
       `course_length` VARCHAR(15) NOT NULL,
-      `department_id` INT(6) NOT NULL
-      PRIMARY KEY (`course_id`),
-      FORIGN KEY (`department_id`) REFERENCES Department(`department_id`))
+      PRIMARY KEY (`course_id`))
       ENGINE=INNODB DEFAULT CHARSET=UTF8;
       
     DROP TABLE IF EXISTS `Student`;
@@ -28,10 +26,8 @@ CREATE TABLE `Department`(
    CREATENTABLE `Student_Course`(
        `student_id` VARCHAR(10) NOT NULL,
        `course_id`  VARCHAR(10) NOT NULL,
-       PRIMARY KEY (`student_id`,`course_id`),
-       FORIGN KEY  (`student_id`) REFERENCES Student(`student_id`),
-       FORIGN KEY   (`course_id`) REFERENCES Course(`course_id`))
-       ENGINE=INNIDB DEFAULT CHARSET=UTF8;
+       PRIMARY KEY (`student_id`,`course_id`))
+       ENGINE=INNODB DEFAULT CHARSET=UTF8;
        
        INSERT INTO Department(department_name,department_location) VALUES('CM Department','2nd floor,fit');
        

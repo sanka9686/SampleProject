@@ -1,9 +1,10 @@
 package com.SpringFrist.Model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
+
 
 @Entity
 @Table(name="Course")
@@ -18,16 +19,16 @@ public class Course {
 	@Column(name="Course_Length")           // like 3 weeks,6 weeks
 	private String  cLength;
 	
-	 @ManyToMany(cascade=CascadeType.ALL)
+	 @ManyToMany(cascade=CascadeType.MERGE)
 	   @JoinTable(name="Student_Course",
 	   joinColumns=@JoinColumn(name="Course_id"),
 	   inverseJoinColumns= @JoinColumn(name="Student_id"))
-	private List<Student> students;
+	private List<Student> students=new ArrayList<Student>();
 	
-	@JsonIdentityReference
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name="department_id" ,insertable=false , updatable=true)
 	private Department department;
+	
 	
 	public Course() {
 		
@@ -42,9 +43,9 @@ public class Course {
 	}
 	
 	
-	public List<Student> getStudents() {
+	/*public List<Student> getStudents() {
 		return students;
-	}
+	}*/
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
@@ -67,8 +68,7 @@ public class Course {
 	public void setcLength(String cLength) {
 		this.cLength = cLength;
 	}
-	
-	
+
 	public Department getDepartment() {
 		return department;
 	}
@@ -77,7 +77,5 @@ public class Course {
 		this.department = department;
 	}
 
-	
-	
 
 }

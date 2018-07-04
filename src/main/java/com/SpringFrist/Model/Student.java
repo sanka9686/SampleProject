@@ -1,6 +1,7 @@
 package com.SpringFrist.Model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
@@ -16,12 +17,12 @@ public class Student {
 	private String sName;
     @Column(name="student_academicyear")
 	private int sAcademicYear;
-    
-    @ManyToMany(cascade=CascadeType.ALL)
+
+    @ManyToMany(cascade=CascadeType.MERGE)
 	   @JoinTable(name="Student_Course",
 	   joinColumns=@JoinColumn(name="Student_id"),
-	   inverseJoinColumns= @JoinColumn(name="Course_id"))
-    private List<Course> courses;
+	   inverseJoinColumns= @JoinColumn(name="Course_id"))    
+    private List<Course> courses=new ArrayList<Course>();
     
 	public Student(){
 		
@@ -34,14 +35,14 @@ public class Student {
 		
 	}
 	
-	
+	 
 	public List<Course> getCourses() {
 		return courses;
 	}
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
-	public String getsId() {
+	public  String getsId() {
 		return sId;
 	}
 	public void setsId(String sId) {
@@ -56,6 +57,7 @@ public class Student {
 	public int getsAcademicYear() {
 		return sAcademicYear;
 	}
+	
 	public void setsAcademicYear(int sAcademicYear) {
 		this.sAcademicYear = sAcademicYear;
 	}
